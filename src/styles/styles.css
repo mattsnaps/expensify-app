@@ -1,5 +1,5 @@
 html {
-  font-size: 62.5%;
+  /*font-size: 62.5%;*/
 }
 
 body {
@@ -13,6 +13,10 @@ button {
 
 button:disabled {
   cursor: default;
+}
+
+.is-active {
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=styles.css.map */
