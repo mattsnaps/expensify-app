@@ -174,7 +174,7 @@ store.dispatch(sortByAmount()); //amount
 // store.dispatch(sortByDate()); //date
 
 //store.dispatch(setStartDate(0)); //125
-// store.dispatch(setStartDate()); //undefined.
+//store.dispatch(setStartDate()); //undefined.
 //store.dispatch(setEndDate(112112)); //
 
 
