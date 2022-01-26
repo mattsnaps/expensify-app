@@ -5,7 +5,7 @@ import AppRouter from "./routers/AppRouter";
 import configureStore from "./store/configureStore";
 import 'normalize.css/normalize.css'
 import './styles/styles.css';
-import { addExpense } from "./actions/expenses";
+import {addExpense, editExpense} from "./actions/expenses";
 import { setTextFilter } from "./actions/filters";
 import getVisibleExpenses from "./selectors/expenses";
 
@@ -14,6 +14,8 @@ const store = configureStore();
 store.dispatch(addExpense( { description: 'Water Bill', amount: '1', createdAt: 2 }));
 store.dispatch(addExpense( { description: 'Gas Bill', amount: '2', createdAt: 3} ))
 store.dispatch(addExpense( { description: 'Rent', amount: '3', createdAt: 1} ))
+
+store.dispatch(editExpense())
 
 const state = store.getState();
 const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);

@@ -1,13 +1,30 @@
 import React, {useCallback} from "react";
-import { useParams} from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { connect, useSelector } from "react-redux";
+import ExpenseForm from "./ExpenseForm";
+import {editExpense, removeExpense} from "../actions/expenses";
 
-const EditExpensePage = () => {
-    console.log();
+const EditExpensePage = (props) => {
+    const navigate = useNavigate();
+
+    const paramId = useParams().id;
+    const expenseObject = useSelector((state) => state.expenses.find((expense) => expense.id === paramId));
+
     return (
         <div>
-            Editing the expense with id of {useParams().id}
+            <ExpenseForm
+                expense={expenseObject}
+                onSubmit={(expense) => {
+                    props.dispatch(editExpense(expenseObject.id, expense))
+                    navigate('/');
+                }}
+            />
+            <button onClick={() => {
+                props.dispatch(removeExpense({ id: expenseObject.id }))
+                navigate('/');
+            }}>Remove</button>
         </div>
     );
 };
 
-export default EditExpensePage;
+export default connect(null)(EditExpensePage);
