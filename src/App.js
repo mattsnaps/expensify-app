@@ -11,11 +11,9 @@ import getVisibleExpenses from "./selectors/expenses";
 
 const store = configureStore();
 
-store.dispatch(addExpense( { description: 'Water Bill', amount: '1', createdAt: 2 }));
-store.dispatch(addExpense( { description: 'Gas Bill', amount: '2', createdAt: 3} ))
-store.dispatch(addExpense( { description: 'Rent', amount: '3', createdAt: 1} ))
-
-store.dispatch(editExpense())
+store.dispatch(addExpense( { description: 'Water Bill', amount: '20', createdAt: 2 }));
+store.dispatch(addExpense( { description: 'Gas Bill', amount: '40', createdAt: 3} ))
+store.dispatch(addExpense( { description: 'Rent', amount: '700', createdAt: 1} ))
 
 const state = store.getState();
 const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
