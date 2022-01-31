@@ -3,27 +3,14 @@ import { connect } from "react-redux";
 import ExpenseListItem from "./ExpenseListItem";
 import selectExpenses from "../selectors/expenses";
 
-const ExpenseList = (props) => (
+export const ExpenseList = (props) => (
     <div>
         {
-            /**
-             * Alternate Way to get items and loop. other way used down below.
-             *
-             props.expenses.map((item) => (
-                <ExpenseListItem
-                    key={item.id}
-                    description={item.description}
-                    amount={item.amount}
-                    createdAt={item.createdAt}
-                />
-             ))
-             */
-        }
-        <h1>Expense List v.2</h1>
-        {
-            props.expenses.map((item) => (
-                <ExpenseListItem key={item.id} {...item} />
-            ))
+            props.expenses.length === 0 ? (
+                <p>No Expenses</p>
+            ) : (
+                props.expenses.map((item) => (<ExpenseListItem key={item.id} {...item} />))
+            )
         }
     </div>
 );

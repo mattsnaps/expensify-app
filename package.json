@@ -1,6 +1,11 @@
 {
   "name": "expensify-app",
   "version": "0.1.0",
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.1",
@@ -10,6 +15,7 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "enzyme": "^3.11.0",
+    "enzyme-to-json": "^3.6.2",
     "moment": "^2.29.1",
     "normalize.css": "^8.0.1",
     "raf": "^3.4.1",
