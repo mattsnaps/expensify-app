@@ -4,7 +4,7 @@ import expenses from "../fixtures/expenses";
 
 test('getVisibleExpenses Filter by text value Success', () => {
     const filters = {
-        text: 'e',
+        text: 'Card',
         sortBy: 'date',
         startDate: undefined,
         endDate: undefined
