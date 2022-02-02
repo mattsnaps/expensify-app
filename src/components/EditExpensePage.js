@@ -2,7 +2,7 @@ import React, {useCallback} from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { connect, useSelector } from "react-redux";
 import ExpenseForm from "./ExpenseForm";
-import {editExpense, removeExpense} from "../actions/expenses";
+import { editExpense, removeExpense } from "../actions/expenses";
 
 const EditExpensePage = (props) => {
     const navigate = useNavigate();
