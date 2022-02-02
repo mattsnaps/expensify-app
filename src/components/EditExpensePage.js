@@ -14,7 +14,7 @@ const EditExpensePage = (props) => {
         <div>
             <ExpenseForm
                 expense={expenseObject}
-                onSubmit={(expense) => {
+                onSubmit2={(expense) => {
                     props.dispatch(editExpense(expenseObject.id, expense))
                     navigate('/');
                 }}
