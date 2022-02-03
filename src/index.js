@@ -15,8 +15,7 @@ store.dispatch(addExpense( { description: 'Water Bill', amount: '20', createdAt:
 store.dispatch(addExpense( { description: 'Gas Bill', amount: '40', createdAt: 3} ))
 store.dispatch(addExpense( { description: 'Rent', amount: '700', createdAt: 1} ))
 
-const state = store.getState();
-const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
+//const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
 
 const jsx = (
   <Provider store={store}>
