@@ -62,7 +62,7 @@ test('ExpenseForm set amount with INVALID data', () => {
 
 test('ExpenseForm calls onSubmit for submission Success', () => {
     const onSubmitSpy = jest.fn();
-    const wrapper = shallow(<ExpenseForm expense={expenses[0]} onSubmit={onSubmitSpy}/>);
+    const wrapper = shallow(<ExpenseForm expense={expenses[0]} onSubmit2={onSubmitSpy}/>);
     wrapper.find('form').simulate('submit', {
         preventDefault: () => { }
     });

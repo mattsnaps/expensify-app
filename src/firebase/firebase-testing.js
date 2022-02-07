@@ -15,11 +15,10 @@ import {
     onChildAdded
 } from "firebase/database";
 
-import appFirebaseDatabase from "./firebase";
+import database from "./firebase";
 import expenses from "../tests/fixtures/expenses";
 
-// const database = getDatabase(appFirebaseDatabase);
-// const databaseRef = ref(database, '/expenses');
+const databaseRef = ref(database, '/expenses');
 
 // onChildRemoved(databaseRef, (snapshot) => {
 //     console.log(snapshot.key, snapshot.val());
