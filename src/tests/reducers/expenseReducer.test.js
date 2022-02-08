@@ -66,6 +66,16 @@ test('expenseReducer edit a NOT FOUND expense', () => {
     expect(state).toEqual(expenses);
 });
 
+test('Expense Reducer should set Expenses Success', () => {
+    const action = {
+        type: 'SET_EXPENSES',
+        expenses: [expenses[1]]
+    };
+    const state = expensesReducer(expenses, action);
+    console.log(state);
+    expect(state).toEqual([expenses[1]]);
+});
+
 
 
 
