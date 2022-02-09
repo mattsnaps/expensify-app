@@ -8,6 +8,7 @@ import 'react-dates/lib/css/_datepicker.css';
 import 'normalize.css/normalize.css'
 import './styles/styles.css';
 import { onAuthStateChanged, getAuth } from "firebase/auth";
+import BrowseHistory from "./components/BrowseHistory";
 
 
 const store = configureStore();
@@ -29,13 +30,12 @@ store.dispatch(startSetExpenses()).then(() => {
 });
 
 const auth = getAuth();
-
-
 onAuthStateChanged(auth, (user) => {
     if (user) {
         console.log('Logged In');
     } else {
-        console.log('Logged out');
+        console.log('Logged Out');
+        BrowseHistory.push('/');
     }
 });
 

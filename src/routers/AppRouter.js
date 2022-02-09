@@ -1,4 +1,4 @@
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes, unstable_HistoryRouter} from "react-router-dom";
 import React from "react";
 import ExpenseDashboardPage from "../components/ExpenseDashboardPage";
 import AddExpensePage from "../components/AddExpensePage";
@@ -7,9 +7,12 @@ import HelpPage from "../components/HelpPage";
 import NotFound from "../components/NotFoundPage";
 import Header from "../components/Header";
 import LoginPage from "../components/LoginPage";
+import NavigateSetter from "../components/NavigateSetter";
+
 
 const AppRouter = () => (
-    <BrowserRouter>
+    <BrowserRouter >
+        <NavigateSetter />
         <Header />
         <Routes>
             <Route path="/" element={<LoginPage />} />
