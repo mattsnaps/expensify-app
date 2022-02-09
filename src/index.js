@@ -7,7 +7,7 @@ import { startSetExpenses } from "./actions/expenses";
 import 'react-dates/lib/css/_datepicker.css';
 import 'normalize.css/normalize.css'
 import './styles/styles.css';
-import './firebase/firebase-testing';
+import { onAuthStateChanged, getAuth } from "firebase/auth";
 
 
 const store = configureStore();
@@ -27,5 +27,18 @@ store.dispatch(startSetExpenses()).then(() => {
         document.getElementById('app')
     );
 });
+
+const auth = getAuth();
+
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        console.log('Logged In');
+    } else {
+        console.log('Logged out');
+    }
+});
+
+
 
 
