@@ -1,10 +1,8 @@
 import {BrowserRouter, Route, Routes, Navigate} from "react-router-dom";
 import React from "react";
-import { connect, useSelector } from "react-redux";
 import ExpenseDashboardPage from "../components/ExpenseDashboardPage";
 import AddExpensePage from "../components/AddExpensePage";
 import EditExpensePage from "../components/EditExpensePage";
-import HelpPage from "../components/HelpPage";
 import NotFound from "../components/NotFoundPage";
 import Header from "../components/Header";
 import LoginPage from "../components/LoginPage";
@@ -15,7 +13,11 @@ const AppRouter = () => (
     <BrowserRouter >
         <NavigateSetter />
         <Routes>
-            <Route path="/" element={<LoginPage />} />
+            <Route path="/" element={
+                <RequireAuth redirectTo='/dashboard'>
+                    <LoginPage />
+                </RequireAuth>
+            } />
 
             <Route path="/dashboard" element={
                 <RequireAuth redirectTo='/'>
@@ -37,8 +39,6 @@ const AppRouter = () => (
                     <EditExpensePage />
                 </RequireAuth>
             } />
-
-            <Route path="/help" element={<HelpPage />} />
             <Route path='*' element={<NotFound />} />
         </Routes>
     </BrowserRouter>
