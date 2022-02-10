@@ -9,7 +9,8 @@ export const addExpense = (expense) => ({
 });
 
 export const startAddExpense = (expenseData = {}) => {
-    return (dispatch) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
         const {
             description = '',
             note = '',
@@ -17,7 +18,7 @@ export const startAddExpense = (expenseData = {}) => {
             createdAt = 0
         } = expenseData;
         const expense = { description, note, amount, createdAt };
-        const databaseRef = ref(database, '/expenses');
+        const databaseRef = ref(database, `users/${uid}/expenses`);
         return push(databaseRef, expense).then((ref) => {
             dispatch(addExpense({
                 id: ref.key,
@@ -34,8 +35,9 @@ export const removeExpense = ({ id: id } = {}) => ({
 });
 
 export const startRemoveExpense = ({ id: id } = {}) => {
-    return (dispatch) => {
-        const databaseRef = ref(database, `expenses/${id}`);
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid
+        const databaseRef = ref(database, `users/${uid}/expenses/${id}`);
         return remove(databaseRef).then(() => {
             dispatch(removeExpense({
                 id
@@ -52,8 +54,9 @@ export const editExpense = (id, updates) => ({
 });
 
 export const startEditExpense = (id, updates) => {
-    return (dispatch) => {
-        const databaseRef = ref(database, `expenses/${id}`)
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        const databaseRef = ref(database, `users/${uid}/expenses/${id}`);
         return update(databaseRef, updates).then(() => {
             dispatch(editExpense(id, updates));
         });
@@ -67,9 +70,10 @@ export const setExpenses = (expenses) => ({
 });
 
 export const startSetExpenses = () => {
-    return (dispatch) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
         const expenseList = [];
-        const databaseRef = ref(database, '/expenses');
+        const databaseRef = ref(database, `users/${uid}/expenses`);
         return get(databaseRef).then((snapshot) => {
             snapshot.forEach((childExpense) => {
                 expenseList.push({

@@ -42,10 +42,8 @@ onAuthStateChanged(auth, (user) => {
                 browseHistory.push('/dashboard');
             }
         });
-        console.log('Logged In');
     } else {
         store.dispatch(logout());
-        console.log('Logged Out');
         renderApp();
         browseHistory.push('/');
     }
