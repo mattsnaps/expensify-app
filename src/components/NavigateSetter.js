@@ -1,11 +1,15 @@
-import { useNavigate } from 'react-router-dom';
-import BrowseHistory from "./BrowseHistory";
+import { useNavigate, useLocation } from 'react-router-dom';
+
+const browseHistory = {
+    navigate: null,
+    currentLocation: null,
+    push: (page) => browseHistory.navigate(page)
+};
 
 const NavigateSetter = () => {
-    BrowseHistory.navigate = useNavigate();
-    console.log(1, BrowseHistory);
-
+    browseHistory.navigate = useNavigate();
+    browseHistory.currentLocation = useLocation().pathname;
     return null;
 };
 
-export default NavigateSetter;
+export { browseHistory, NavigateSetter as default };
