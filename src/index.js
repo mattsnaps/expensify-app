@@ -36,7 +36,6 @@ const auth = getAuth();
 onAuthStateChanged(auth, (user) => {
     if (user) {
         store.dispatch(login(user.uid));
-        console.log('uid', user.uid);
         store.dispatch(startSetExpenses()).then(() => {
             renderApp();
             if (browseHistory.currentLocation === '/') {
