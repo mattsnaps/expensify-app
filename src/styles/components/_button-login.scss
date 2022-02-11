@@ -1,0 +1,13 @@
+.button-login {
+  background: $primary-blue;
+  border: none;
+  border-radius: 1px;
+  color: white;
+  font-size: $font-size-medium;
+  font-weight: 300;
+  padding: $s-size;
+}
+
+.button-login:hover {
+  filter: brightness(95%);
+}

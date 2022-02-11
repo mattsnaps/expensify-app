@@ -5,9 +5,9 @@ import AppRouter from "./routers/AppRouter";
 import configureStore from "./store/configureStore";
 import { startSetExpenses } from "./actions/expenses";
 import { login, logout } from "./actions/auth";
-import 'react-dates/lib/css/_datepicker.css';
 import 'normalize.css/normalize.css'
-import './styles/styles.css';
+import 'react-dates/lib/css/_datepicker.css';
+import './App.css';
 import { onAuthStateChanged, getAuth } from "firebase/auth";
 import { browseHistory } from "./components/NavigateSetter";
 

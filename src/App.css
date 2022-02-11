@@ -1,3 +1,61 @@
+html {
+  /*font-size: 62.5%;*/
+}
 
+body {
+  color: #333;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+.is-active {
+  font-weight: bold;
+}
+
+.box-layout {
+  align-items: center;
+  background: url("/public/images/bg.jpg");
+  background-size: cover;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+.box-layout__box {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  text-align: center;
+  padding: 3.2rem 1.6rem;
+  width: 25rem;
+}
+
+.box-layout__title {
+  margin: 0 0 1.6rem 0;
+  line-height: 1;
+}
+
+.button-login {
+  background: #0281b9;
+  border: none;
+  border-radius: 1px;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 300;
+  padding: 1.2rem;
+}
+
+.button-login:hover {
+  filter: brightness(95%);
+}
 
 /*# sourceMappingURL=App.css.map */
