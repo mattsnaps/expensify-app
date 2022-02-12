@@ -12,17 +12,25 @@ const EditExpensePage = (props) => {
 
     return (
         <div>
-            <ExpenseForm
-                expense={expenseObject}
-                onSubmit2={(expense) => {
-                    props.dispatch(startEditExpense(expenseObject.id, expense))
+            <div className="page-header">
+                <div className= "content-container">
+                    <h1 className="page-header__title">Edit Expense</h1>
+                </div>
+            </div>
+            <div className="content-container">
+                <ExpenseForm
+                    expense={expenseObject}
+                    onSubmit2={(expense) => {
+                        props.dispatch(startEditExpense(expenseObject.id, expense))
+                        navigate('/');
+                    }}
+                />
+                <button className="button button--secondary" onClick={() => {
+                    props.dispatch(startRemoveExpense({ id: expenseObject.id }))
                     navigate('/');
-                }}
-            />
-            <button onClick={() => {
-                props.dispatch(startRemoveExpense({ id: expenseObject.id }))
-                navigate('/');
-            }}>Remove</button>
+                }}>Remove</button>
+            </div>
+
         </div>
     );
 };

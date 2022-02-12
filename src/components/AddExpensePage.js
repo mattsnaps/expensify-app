@@ -14,15 +14,22 @@ export const AddExpensePage = (props) => {
 
     return (
         <div>
-            <h1>Add Expense</h1>
-            <ExpenseForm
-                onSubmit2={
-                    (expense) => {
-                        onSubmit(expense);
-                        navigate('/', {replace: true});
+            <div className="page-header">
+                <div className="content-container">
+                    <h1 className="page-header__title">Add Expense</h1>
+                </div>
+            </div>
+            <div className="content-container">
+                <ExpenseForm
+                    onSubmit2={
+                        (expense) => {
+                            onSubmit(expense);
+                            navigate('/', {replace: true});
+                        }
                     }
-                }
-            />
+                />
+            </div>
+
         </div>
     );
 };

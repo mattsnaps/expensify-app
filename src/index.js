@@ -10,7 +10,7 @@ import 'react-dates/lib/css/_datepicker.css';
 import './App.css';
 import { onAuthStateChanged, getAuth } from "firebase/auth";
 import { browseHistory } from "./components/NavigateSetter";
-
+import LoadingPage from "./components/LoadingPage";
 
 const store = configureStore();
 
@@ -22,7 +22,7 @@ const jsx = (
 
 let hasRendered = false;
 
-ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
+ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
 const renderApp = () => {
     if(!hasRendered) {
